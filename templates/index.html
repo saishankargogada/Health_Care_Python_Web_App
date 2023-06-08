@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Helpdesk Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        h2 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Helpdesk Chatbot</h1>
+    <form method="POST" action="/">
+        <!-- Health Condition dropdown -->
+        <label for="condition">Health Condition:</label>
+        <select name="condition" id="condition">
+            {% for condition in conditions %}
+            <option value="{{ condition }}">{{ condition }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <!-- Severity Level dropdown -->
+        <label for="severity">Severity Level:</label>
+        <select name="severity" id="severity">
+            {% for severity in severities %}
+            <option value="{{ severity }}">{{ severity }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <!-- Message input -->
+        <label for="message">Message:</label>
+        <input type="text" name="message" id="message">
+        <br><br>
+        <!-- Submit button -->
+        <input type="submit" value="Submit">
+    </form>
+    
+    <!-- Display chatbot response if available -->
+    {% if response %}
+    <h2>Chatbot Response:</h2>
+    <p>{{ response }}</p>
+    {% endif %}
+</body>
+</html>
