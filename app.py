@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 # Replace 'YOUR_CHATGPT_API_KEY' with your actual ChatGPT API key
-CHATGPT_API_KEY ='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'
+CHATGPT_API_KEY ='CHATGPT_API_KEY'
 CHATGPT_API_URL = 'https://api.openai.com/v1/chat/completions'
 
 # Define the available health conditions and severity levels
